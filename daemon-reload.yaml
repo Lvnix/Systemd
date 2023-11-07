@@ -1,6 +1,6 @@
 ---
-
-- hosts:
+- name: Playbook to reload daemon
+  hosts: all
   become: yes
   tasks:
     - name: reload configs
