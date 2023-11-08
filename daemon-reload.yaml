@@ -1,6 +1,6 @@
 ---
 - name: Playbook to reload daemon
-  hosts: all
+  hosts: "{{ server_ip }}"
   become: yes
   tasks:
     - name: reload configs
