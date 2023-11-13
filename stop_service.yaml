@@ -1,0 +1,9 @@
+---
+- name: Stop service if running
+  hosts: "{{ server_ip }}"
+  become: yes
+  tasks:
+    - name: stop service
+      ansible.builtin.systemd:
+        name: "{{ service }}"
+        state: stopped
