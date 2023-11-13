@@ -1,0 +1,10 @@
+---                         
+- name: Dis_or_enable_service
+  hosts: "{{ server_ip }}"  
+  become: yes               
+  tasks:
+    - name: Enable_or_Disable_service
+      ansible.builtin.systemd:
+        name: "{{ service }}"
+        enabled: "{{ status }}"  #true/false
+      
