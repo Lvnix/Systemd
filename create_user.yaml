@@ -1,0 +1,24 @@
+---
+- name: Create user tester
+  hosts: "{{ vm_name }}"
+  become: true 
+  gather_facts: true
+
+  vars:
+    username: ""
+    failed: "user creation failed"
+    successful: "user creation successful"
+
+  tasks:
+    - name: Create tester account
+      ansible.builtin.user:
+        name: tester
+        shell: /bin/bash
+        state: present
+
+    - name: Add authorization_key for user
+      ansible.posix.authorized_key:
+        user: tester
+        state: present
+        manage_dir: true
+        key: "{{ lookup('file', 'templates/ssh-key') }}"
