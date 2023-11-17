@@ -4,11 +4,6 @@
   become: true 
   gather_facts: true
 
-  vars:
-    username: ""
-    failed: "user creation failed"
-    successful: "user creation successful"
-
   tasks:
     - name: Create tester account
       ansible.builtin.user:
