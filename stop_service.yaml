@@ -5,5 +5,5 @@
   tasks:
     - name: stop service
       ansible.builtin.systemd:
-        name: "{{ service }}"
+        name: "{{ service.split(',') }}"
         state: stopped
