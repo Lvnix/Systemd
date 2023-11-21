@@ -7,13 +7,13 @@
   tasks:
     - name: Create tester account
       ansible.builtin.user:
-        name: tester
+        name: "{{ utilisateur }}"
         shell: /bin/bash
         state: present
 
     - name: Add authorization_key for user
       ansible.posix.authorized_key:
-        user: tester
+        user: "{{ utilisateur }}"
         state: present
         manage_dir: true
         key: "{{ lookup('file', 'templates/ssh-key') }}"
