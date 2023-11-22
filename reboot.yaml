@@ -1,0 +1,7 @@
+---
+- name: Reboot machine and send a message
+  hosts: "{{ vm_name }}"
+  become: true
+  gather_facts: true
+  ansible.builtin.reboot:
+    msg: "Rebooting machine in 5 seconds"
