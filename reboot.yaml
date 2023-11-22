@@ -3,5 +3,8 @@
   hosts: "{{ vm_name }}"
   become: true
   gather_facts: true
-  ansible.builtin.reboot:
-    msg: "Rebooting machine in 5 seconds"
+
+  tasks:
+    -name: Reboot and send a message
+    ansible.builtin.reboot:
+      msg: "Rebooting machine in 5 seconds"
